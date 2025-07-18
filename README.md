@@ -8,7 +8,7 @@ Barrierと、その後継 Input Leapの日本語化の改定の苦闘記録
 
 * 2025-06-21 [Input Leap 翻訳が表示されない問題を修正](https://github.com/input-leap/input-leap/commit/fde9fb62869009dea10cb4c95886a44aa0cd07e3) あとはリリース待ちか？？
 * 2025-06-14 [Input Leap](https://github.com/input-leap/input-leap/releases) 3.0.3。[しかしこれはすべて起動しない様子](https://github.com/input-leap/input-leap/issues/2254)。Show all 16 assets からWindows用。
-* 2024-10-04 [Input Leap 3.0.0](https://github.com/input-leap/input-leap/releases/tag/v3.0.0) 2.4.0用の日本語訳 #1375 は入ってるが、表示されない。（Windows要は3.0.1）
+* 2024-10-04 [Input Leap 3.0.0](https://github.com/input-leap/input-leap/releases/tag/v3.0.0) 2.4.0用の日本語訳 #1375 は入ってるが、表示されない。（Windows用は3.0.1と3.0.2にある）
 * 2024-10-02 Deskflow 1.17.0 英語のみ。Synergyの無料版でSynergyの開発者による
  
 * 2021-11-05 ★[日本語訳 #1375 2.4.0用](https://github.com/debauchee/barrier/pull/1375)
@@ -23,6 +23,7 @@ Barrierと、その後継 Input Leapの日本語化の改定の苦闘記録
 
 ほかのソフト
 * [Lan Mouse](https://github.com/feschber/lan-mouse) 開発段階
+<!-- * [InputShare](https://github.com/InputShare/InputShare) -->
 
 ### Barrier 以前の Synergy
 
@@ -38,19 +39,27 @@ Synergy 小史
 * [github/deskflow/deskflow/wiki/History](https://github.com/deskflow/deskflow/wiki/History)
 * [github/input-leap/wiki-prs/wiki/History.md](https://github.com/input-leap/wiki-prs/blob/master/wiki/History.md)
 
-### Barrierの翻訳メモ
+### 翻訳作業のメモ
 * [Barrier翻訳法](https://github.com/debauchee/barrier/issues/1857)
+* [[Feature request] Load external translations](https://github.com/input-leap/input-leap/issues/1159)
 
-Barrierの翻訳作業は、現在のところ以下の2ファイルをDiffで比較すればいい。
+翻訳作業は、現在のところ以下の2ファイルをDiffで比較すればいい。
 
-* src/gui/res/[lang](https://github.com/debauchee/barrier/tree/master/src/gui/res/lang)/ 翻訳ファイルがある。
+新しい翻訳文字列があれば、tsファイル中に追加する。タスクトレイ内の右クリックの文字列のショートカットキーは、日本語用に独自に追加した。
+**Input Leap**
+* src/gui/res/[lang](https://github.com/debauchee/barrier/tree/master/src/gui/res/lang)/ 各国の翻訳ファイルがある。
+* src/gui/gui.ts 存在しない
+ 
+* src/gui/[src](https://github.com/input-leap/input-leap/tree/master/src/gui/src)/ sourceタグ部分のウインドウ構成のファイルがあり、新規文字列はここから確認できる。
+
+**Barrier**
+* src/gui/res/[lang](https://github.com/debauchee/barrier/tree/master/src/gui/res/lang)/ 各国の翻訳ファイルがある。
 * src/gui/[gui.ts](https://github.com/debauchee/barrier/blob/master/src/gui/gui.ts) 英語ファイルがある。
-
-新しい翻訳文字列があればbarrierのtsファイル中に入れる。タスクトレイ内の右クリックの文字列のショートカットキーは、日本語用に独自に追加した。
 
 * src/gui/[src](https://github.com/debauchee/barrier/tree/master/src/gui/src)/ sourceタグ部分のウインドウ構成のファイルがあり、新規文字列はここから確認できる。
 
-* また本家 [synergy-core の翻訳サイト](https://crowdin.com/project/synergy-core)も同時に反映していく（ここも更新はない）。
+**synergy**
+* 本家 [synergy-core の翻訳サイト](https://crowdin.com/project/synergy-core) も同時に反映していく（ここも更新はなくもう使われない？）。
 
 #### tsファイル
 tsファイル中の location タグはおそらくメモ用で実際には機能しておらず、sourceタグ部分が一致すれば、translation 部分を表示できるので、新しい文字列は勝手に追加していくとよい。
